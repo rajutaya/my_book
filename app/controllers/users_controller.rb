@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
   require 'data_test'
+  #~ load 'data_test.rb'
+  
   # GET /users
   # GET /users.json
   def index
     @users = User.all
-    @emp=Employee.all
-    @a = @users.last.user_name
+    @emp=Employee.includes(:pictures)
+    #~ @emp=Employee.all
+    #~ @emp=Employee.joins(:pictures).uniq
+    @a = @users.last.user_name if @users && @users.last && @users.last.user_name
     puts "------------------"
      @ss = DataTest.calling_name(@a)
     puts "-------#{@ss}------------"

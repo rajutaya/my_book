@@ -29,6 +29,13 @@ production:
   password: postgres
   pool: 5
   timeout: 5000
+  
+other_development:
+  adapter: postgresql
+  database: otherdb_development
+  username: postgres
+  password: postgres
+  host: localhost
 
 cucumber:
   <<: *test
